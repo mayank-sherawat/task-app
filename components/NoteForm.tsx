@@ -19,7 +19,6 @@ export default function NoteForm({
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ IMPORTANT FIX: Sync props to state
   useEffect(() => {
     setTitle(initialTitle);
     setContent(initialContent);
@@ -37,7 +36,6 @@ export default function NoteForm({
     await onSubmit({ title, content });
     setLoading(false);
 
-    // Clear only after creating (not editing)
     if (buttonText === "Create Note") {
       setTitle("");
       setContent("");
