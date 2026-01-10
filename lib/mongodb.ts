@@ -6,10 +6,6 @@ if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI in .env.local");
 }
 
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially.
- */
 let cached = (global as any).mongoose;
 
 if (!cached) {
