@@ -16,7 +16,6 @@ export default function HomePage() {
   const [editingNote, setEditingNote] = useState<Note | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch all notes
   async function fetchNotes() {
   try {
     const res = await fetch("/api/notes");
@@ -29,7 +28,6 @@ export default function HomePage() {
 
     const data = await res.json();
 
-    // ✅ Ensure notes is always an array
     if (Array.isArray(data)) {
       setNotes(data);
     } else {
